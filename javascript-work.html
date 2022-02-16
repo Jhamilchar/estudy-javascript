@@ -10,16 +10,207 @@
     <h1>Javascript fundamental</h1>
 
     <script>
+        /*
     //  Objetos -->
 
     let a = new String("Hola");
-    console.log(a)
+    // console.log(a)
 
+    const b = {};
+    console.log(b);
+
+    const c = new Object();
+    console.log(c);
+
+
+    // Dentro de un objeto a las variables se le van a llamar atributos atributos/propiedades  y a las funciones  se les métodos 
+    const jhamil = {
+        nombre: "Jhamil",
+        apellido: "Arroyo",
+        edad: "21",
+        pasatiempos: ["correr","hacer ejercicio", "dar clase"],
+        soltero: false,
+    }
+
+    console.log(jhamil);
+    console.log(jhamil["nombre"]);
+    console.log(jhamil.pasatiempos);
+    console.log(jhamil.pasatiempos[0]);
+
+    */
+
+
+    /*
     //  Tipos de operadores -->
 
+    let a = 3 + 5;
+    let modulo = 5%2;
+
+    console.log(a);
+    console.log(modulo);
+
+
+    // Relacionales
+
+    console.log(8>9);
+    console.log(8<9);
+    console.log(8<=9);
+    console.log(9<8);
+
+    // = 1 igual a asignacion de variable
+    // ==  2 iguales es comparacion de valores
+    // ===  3 iguales es comparacion de tipo de dato y de valor
+
+
+    // console.log(7 == 7);
+    // console.log("7" == 7);
+    // console.log("7" === 7);
+
+    //Incremento Decremento
+
+    let i = 4;
+
+    // i = i+2;
+    // i *= 6;
+
+    //Operador unario
+    i++;
+    i--;
+
+    console.log(i);
+
+    // Logicos
+    //     !Not: Niega,es decir lo que es verdadero lo vuelve falso y viceversa
+    //     ||: Cuando tengo 2 o mas condiciones con que una se cumpla, es decir sea verdadera, el OR sera verdadero
+    //     &&: - And: Cuando tengo 2 o mas condiciones todas tienen que cumplirse, es decir ser verdaderas, para que AND se cumpla  
+    console.log(!true);
+    console.log((9===9) || ("9"===9));
+    console.log((9===9) && ("9"===9));
+    console.log((9===9) && ("9"==="9"));
+
+    */
+
+    /*
     //  Condicionales -->
 
+
+    // if - else
+
+    let edad = 18;
+
+    if ( edad > 17) {
+        console.log("Eres mayor de edad");
+    }else {
+        console.log("Eres menor de edad");
+    }   
+
+    if ( edad >= 18) {
+        console.log("Eres mayor de edad");
+    }else {
+        console.log("Eres menor de edad");
+    }
+    
+    if ( edad >= 18) {
+        console.log("Eres mayor de edad");
+    }else {
+        console.log("Eres menor de edad");
+    }  
+
+
+    // if - else if- else 
+
+
+    // Dejame dormir - 0hrs - 5hrs
+    // Buenos dias 6hrs - 11hrs
+    // Buenos tardes 12hrs - 18hrs
+    // Buenos noches 19hrs - 23hrs
+
+    let hora = 5;
+    if(hora >= 0 && hora <= 5) {
+        console.log("Déjame dormir");
+    } else if(hora >= 6 && hora <= 11) {
+        console.log("Buenos dias");
+    } else if(hora >= 12 && hora <=18 ) {
+        console.log("Buenas tardes");
+    } else if(hora >= 19 && hora <=23)
+        console.log("Buenas noches");
+
+
+    if(hora < 6) {
+        console.log("Déjame dormir");
+    } else if(hora > 5 && hora < 12) {
+        console.log("Buenos dias");
+    } else if(hora > 11 && hora < 19 ) {
+        console.log("Buenas tardes");
+    } else if(hora >= 19 && hora <=23)
+        console.log("Buenas noches");
+
+    // Operador ternario(Condicion) ? verdadero:falsa
+
+
+    console.log("Operador Terniario");
+
+
+
+
+    let  eresMayor = (edad >= 18) 
+    ? "Eres mayor de Edad"
+    :"Eres menor de Edad"
+    console.log(eresMayor);
+
+
+    // switch-case
+    /*
+    domingo-0
+    lunes-1
+    martes-2
+    miercoles-3
+    jueves-4
+    viernes-5
+    sabado-6    
+    
+
+    let dias = 5;
+
+    switch (dias) {
+        case 0:
+            console.log("Domingo") ;
+            break;
+        case 1:
+            console.log("Lunes");
+            break;
+        case 2:
+            console.log("Martes");
+        break;
+        case 3:
+            console.log("Miercoles");
+        break;
+        case 4:
+            console.log("Jueves");
+        break;
+        case 5:
+            console.log("Viernes");
+        break;
+        case 6:
+            console.log("Sabado");
+        break;
+
+        default:
+            console.log("El Día no existe ");
+            break;
+    }
+    */
+    
+
     //  Ciclos(Loops) -->
+
+    let contador = 0;
+
+    while (contador > 10) {
+        console.log(contador);
+        contador++;
+    }
+
 
     //  Manejo de errores -->
 
@@ -40,6 +231,8 @@
     //  Metodos estaticos Fin POO -->
 
     //  Objeto Console -->
+
+
     
     </script>
 </body>
