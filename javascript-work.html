@@ -199,36 +199,405 @@
             console.log("El Día no existe ");
             break;
     }
-    */
+    
     
 
     //  Ciclos(Loops) -->
 
-    let contador = 0;
+    let contador = 10;
 
     while (contador > 10) {
-        console.log(contador);
+        console.log("While "+contador);
         contador++;
     }
 
+    do {
+        console.log("do While "+contador);
+        contador++;
+    } while (contador < 10);
 
+    // for (inicializacion de variable; condicion; decremento o incremento) {
+    //     sentebcias que ejecuta el for
+    //     sentebcias que ejecuta el for
+    //     sentebcias que ejecuta el for
+    //     sentebcias que ejecuta el for
+    // }
+
+    for (let i = 0;i < 10 ;i++) {
+        console.log("for "+ i);
+    }
+
+    let numeros = [10,20,30,40,50,60,70,80,90,100];
+
+    for (let i = 0;i < numeros.length;i++ ) {
+        console.log(numeros[i]);
+    }
+
+
+    const jhamil = {
+        nombre: "jhamil",
+        apellido: "arroyo",
+        edad: "21"
+    } 
+
+
+    for (const propiedad in jhamil) { //La variante del ciclo for que me dejara recorrer cada elemento primitivo
+        console.log(`Key: ${propiedad}, Value: ${jhamil[propiedad]}`);
+    }
+
+    for (const elemento of numeros) {
+        console.log(elemento); //La variante del ciclo for que me dejara recorrer cada elemento de un array[]
+    }
+    
     //  Manejo de errores -->
 
+    try {
+        console.log("En el try se agrega codigo a evaluar");
+        noExiste;
+        console.log("Segundo mensaje en el try");
+    } catch (error) {
+        console.log("Catch, captura cualquier error surgido o lanzado en el try");
+        console.log(error); 
+    }finally{
+        console.log("El bloque finally se ejecutara siempre al final de un bloque try-catch");
+
+        
+    }
+
+    Puedes personalizar mensajes de error en el bloque tryCatch
+        
     //  Break and Continue -->
+
+
+
+    const numeros = [1,2,3,4,5,6,7,8,9,0];
+
+    for(let i = 0; i < numeros.length;i++) {
+        if (i === 5){
+            break;//SAlir de la estructura de control
+        }
+        console.log(numeros[i]);
+    }
+
+    for(let i = 0; i < numeros.length;i++) {
+        if (i === 5){
+            continue//Salta la iteracion y continua
+        }
+        console.log(numeros[i]);
+    }
+
 
     //  Destructuracion -->
 
+
+    //Sin destructuracion
+    let numeros = [1,2,3];
+
+    let uno = numeros[0],
+        dos = numeros[1],
+        tres = numeros[2];
+
+    console.log(uno,dos,tres);
+
+    //Con destructuracion
+    const [one,two,three] = numeros;
+    console.log(one,two,three);
+
+    let persona = {
+        nombre:"jhamil",
+        apellido: "arroyo",
+        edad: "21"
+    }
+
+    let {nombre,apellido,edad} = persona;
+    console.log(nombre,apellido,edad);
+
+    //En resumen presenta los valores en una linea destructurando el valor de un array o arreglo en español
+
+
+
     //  Objetos literales -->
+
+    let nombre = "Neron",
+        edad = 2;
+
+
+        const perro = {
+            nombre: nombre,
+            edad: edad,
+            ladrar: function () {
+                console.log("guauu guauuu!!!");
+            }
+        }
+
+    console.log(perro);
+    perro.ladrar()     
+    
+    
+    const dog = {
+        nombre,
+        edad,
+        raza: "Callejero",
+        ladrar() {
+                console.log("guauu guauuu guau !!!");
+            }
+
+            //Esta es la forma de mostrar un objeto literal
+    }
+
+    console.log(dog);
+
 
     //  Parametros REST & operadores -->
 
+    function sumar (a,b,...c) {
+        let resultado = a + b;
+
+
+        c.forEach(function(n) {
+            resultado += n 
+        });
+
+        return resultado;
+    }
+
+    console.log(sumar(1,2));
+    console.log(sumar(1,2,3));
+    console.log(sumar(1,2,3,4));
+    console.log(sumar(1,2,3,4,5));
+
+    
+
+    const arr1 = [1,2,3,4,5],
+    arr2 = [6,7,8,9];
+
+    console.log(arr1,arr2)
+
+    const arr3 = [...arr1,...arr2];
+    console.log(arr3);
+
+
     //  Arrow Functions -->
 
+    const saludo = nombre => console.log(`Hola ${nombre}`);
+    saludo("Mely");
+
+    // const sumar = function (a,b) {
+    //     return a + b;
+    // }
+
+
+    const sumar = (a,b) => a+b;
+
+    console.log(sumar(7,0));
+
+
+    const funcionDeVariasLineas = () => {
+        console.log("Uno");
+        console.log("Dos");
+        console.log("Tres");
+    }
+
+    funcionDeVariasLineas(); 
+
+
+    const numeros = [1,2,3,4,5,6];
+
+    // numeros.forEach(function (el,index) {
+    //     console.log(`El elemento ${el} esta en la posicion ${index}`);
+    // });
+
+    numeros.forEach( (el,index) => console.log(`${el} esta en la posicion ${index}`));
+
+
+    function Perro() {
+        console.log(this);
+    }
+
+    Perro();
+
+    const perro = {
+        nombre: "Neron",
+        ladrar() { //Nuev aforma de expresar un function
+            console.log(this)
+        }
+    }
+
+    perro.ladrar();
+
+
     //  Prototipos POO -->
+
+    //POO
+
+    // clases - modelo a seguuir 
+    // objetos - es una instancia de un a clase
+        //Atributos
+        // Es una caracteristica o propiedad del objeto (son variables dentro de un objeto) 
+        
+        // Metodos
+        // Son las acciones que un objeto puede realizar (Son funciones dentro de un objeto) 
+
+    const animal = {
+        nombre: "snoopy",
+        sonar() {
+            console.log("Hago sonido por que estoy vivo");
+        }
+    }
+
+    console.log(animal);
+
+    const animal2 = {
+        nombre: "Dug",
+        sonar() {
+            console.log("Hago sonido alone");
+        }
+    }
+
+    console.log(animal);
+    console.log(animal2);
+    
+    
+
+    // //Funcion constructora
+
+    // function Animal(nombre,genero) {
+    //     //Atributos
+    //     this.nombre = nombre;    
+    //     this.genero = genero;
+
+    //     //Metodo
+    //     this.sonar = function() {
+    //         console.log("Hago sonido por que estoy vivo");
+    //     }
+    // }
+
+    // const snoopy = new Animal("snoopy","macho");
+    //       red = new Animal("Doggy","macho");
+    
+
+
+    //Funcion constructura donde asignamos los metodos al prototipo no a la funcion
+
+    function Animal(nombre,genero) {
+        //Atributos
+        this.nombre = nombre;    
+        this.genero = genero;
+
+    }
+    //Metodos agregados al prototipo de la funcion constructora
+    Animal.prototype.sonar = function() {
+        console.log("Hago sonido por que estoy vivo");
+    }
+
+    //Herencia prototipica
+
+    function Perro(nombre,genero,tamanio) {
+        this.super = Animal;
+        this.super(nombre,genero);
+        this.tamanio = tamanio;
+    }
+
+
+    //Perro esta heredando de animal
+    Perro.prototype = new Animal();
+    Perro.prototype.constructor  = Perro;
+
+    //Sobreescritura  de metodos de prototipo en el padre en el hijo
+
+    Perro.prototype.sonar = function() {
+        console.log("Soy un perro y mis sonido es un ladrido");
+    }
+
+    Perro.prototype.ladrar = function() {
+        console.log("Mira como ladro : guau guau");
+    }
+
+    const snoopy = new Perro("snoopy","macho","mediano");
+          lolaBunny = new Animal("lola bunny","hembra");
+
+    console.log(snoopy);
+    console.log(lolaBunny);
+
+    snoopy.sonar();
+    lolaBunny.sonar();
 
     //  Clases y herencia -->
 
     //  Metodos estaticos Fin POO -->
+
+    //Azucar sintatico
+
+
+
+
+
+    // CLASE IMPORANTE
+    */
+
+    //Funcion constructora (Es mejor a nivel de sintaxis)
+    //Azucar sintactico ()
+
+    class Animal{
+
+        constructor(nombre,genero) {
+            this.nombre = nombre;    
+            this.genero = genero;
+        }
+        //Atributos
+
+        //Metodo
+        sonar() {
+            console.log("Hago sonido por que estoy vivo");
+        }
+
+        saludar() {
+            console.log(`Hola me llamo ${this.nombre}`);
+        }
+    }  
+    
+    
+    class Perro extends Animal {
+        constructor(nombre,genero,tamanio){
+            //Con el metodo super() se manda a llamar el constructor de la clase padre
+            super(nombre,genero);
+            this.tamanio = tamanio;
+        }
+        sonar(){
+        console.log("Soy un perro y mis sonido es un ladrido");
+        }
+
+        ladrar(){
+            console.log("Guau guau!! guarrrsdasdasdkqjwe");
+        }
+        
+    }
+
+    const mimi = new Animal("Mini","Hembra"),
+     scooby = new Perro("Scooby","Macho","Pitbull");
+
+
+     console.log(mimi);
+     console.log(scooby);
+
+     mimi.saludar();
+     mimi.sonar();
+
+     scooby.saludar();
+     scooby.sonar();
+     scooby.ladrar();
+
+
+
+
+
+
+
+
+
+
+
+
 
     //  Objeto Console -->
 
