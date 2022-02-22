@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        
+        /*1) Programa una funcion que cuente el numero de caracteres de una cadena de texto miFuncion("Hola mundo devolvera 10*")*/
+
+
+        // function contarCaracteres(Cadena = "") {
+        //     if (!Cadena) {
+        //         console.warn("No Ingresaste ninguna cadena");
+        //     }else {
+        //         console.info(`La cadena "${Cadena}" tiene ${Cadena.length} caracteres`)
+        //     }
+        // }
+
+
+        // const contarCaracteres = (cadena = "") => 
+        //     (!cadena)
+        //         ?console.warn("No Ingresaste ninguna cadena")
+        //         :console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`)
+
+        // contarCaracteres();
+        // contarCaracteres("Hola mundo");
+
+
+
+
+        const contarCortado = (cadena = "" ,longitud = undefined) => 
+            (!cadena)
+            ?console.warn("No Ingresaste ninguna cadena") 
+            :(longitud === undefined)
+                ?console.warn("No Ingresaste ninguna cadena") 
+                :console.info(cadena.slice(0, longitud))
+        
+        // contarCortado("Hola mundo",9);  
+        // contarCortado();
+        // contarCortado("Hola hola");
+        // contarCortado("",5);
+
+
+
+
+        const cadenaAArreglo = (cadena = "",separador = undefined) => 
+        (!cadena)
+            ?console.warn("No Ingresaste ninguna cadena") 
+            :(separador === undefined)
+                ?console.warn("No Ingresaste el caracter separador") 
+                :console.info(cadena.split(separador))
+
+        // cadenaAArreglo("lorem lorem lorem lorem lorem lorem loremlorem lorem lorem lorem"," ");
+
+
+
+
+        const repetirText = (texto = "",veces = undefined) => {
+            if (!texto) return console.warn("No ingresaste un texto");
+
+            if(veces === undefined) return console.warn("No ingresaste el número de veces a repetir texto");
+
+            if(veces === 0) return console.error("El número de veces no puede ser 0");
+            
+            if(Math.sign(veces) === -1) return console.error("El numero de veces no puede ser negativo");
+
+            for(let i = 1; i <= veces; i++) {
+                console.info(`${texto},${i}`)
+            }
+
+
+        }
+
+
+        repetirText("Hola mundo",0);
+        repetirText();
+        repetirText("Hola mundo",-2);
+        repetirText("",20); 
+        repetirText("Hola mundo");
+
+
+
+
+    </script>
+</body>
+</html>
