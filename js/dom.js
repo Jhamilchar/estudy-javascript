@@ -219,7 +219,7 @@ $figure.appendChild($figcaption);
 $cards.appendChild($figure);
 
 $figure2.innerHTML = `
-    <img src="https://placeimg.com/200/200/people" alt="People">
+    <img src="|" alt="People">
     <figcaption>People</figcaption>
 `; 
 
@@ -280,15 +280,182 @@ $ul3.appendChild($fragment);
 document.body.appendChild($ul3);
 
 
+
+
+//Templates html
+
+
+
+const $cards = document.querySelector(".cards");
+$template = document.getElementById("template-card").content,
+$fragment = document.createDocumentFragment(),
+cardContent = [
+    {
+        title:"Tecnología",
+        img: "https://placeimg.com/200/200/tech",
+    },
+    {
+        title:"Animales",
+        img: "https://placeimg.com/200/200/animals",
+    },
+    {
+        title:"Arquitectura",
+        img: "https://placeimg.com/200/200/arch",
+    },
+    {
+        title:"Gente",
+        img: "https://placeimg.com/200/200/people",
+    },
+    {
+        title:"Naturaleza",
+        img: "https://placeimg.com/200/200/nature   ",
+    },
+];
+
+cardContent.forEach(el => {
+    $template.querySelector("img").setAttribute("src",el.img); 
+    $template.querySelector("img").setAttribute("alt",el.title);
+    $template.querySelector("figcaption").textContent = el.title;
+
+
+    let $clone = document.importNode($template, true);
+    $fragment.appendChild($clone);
+});
+
+$cards.appendChild($fragment);
+
+
+
+
+//DOM Modificando elementos (Old Style)
+
+
+
+const $cards = document.querySelector(".cards"),
+    $newCard = document.createElement("figure");
+    $cloneCards= $cards.cloneNode(true);
+
+    $newCard.innerHTML = `
+    <img src="https://placeimg.com/200/200/any" alt="Any">
+    <figcaption>Any</figcaption>
+    `;
+    $newCard.classList.add("card");
+
+    // $cards.replaceChild($newCard, $cards.children[2]);
+    // $cards.removeChild($cards.lastElementChild);
+    // $cards.insertBefore($newCard, $cards.firstElementChild);
+
+    document.body.appendChild($cloneCards);
+
+
+
 */
 
 
 
+/* 
+.insertAdjancent...
+.insertAdjancentElent(position, el)
+.insertAdjancentHTML(position, html)
+.insertAdjancentText(position, text)
 
 
+Posiciones:
+    beforebegin(hermano anterior)
+    afterbegin(primer hijo)
+    beforeend(ultimo hijo)
+    afterend(hermano siguiente)
 
 
+const $cards = document.querySelector(".cards"),
+    $newCard = document.createElement("figure");
+ 
+let $contenCard = `
+    <img src="https://placeimg.com/200/200/any" alt="Any">
+    <figcaption></figcaption>
+    `;
+    $newCard.classList.add("card");
 
 
+$newCard.insertAdjacentHTML("beforeend",$contenCard);
+$newCard.querySelector("figcaption").insertAdjacentText("afterbegin","Any")
+// $cards.insertAdjacentElement("afterbegin",$newCard);
+
+// $cards.prepend($newCard)
+// $cards.append($newCard)
+// $cards.before($newCard);
+// $cards.after($newCard);
 
 
+//Manejadores de eventos
+//Eventos de parametros y remover eventos
+
+function holaMundo() {
+    alert("Hola mundo");
+    console.log(event);
+}
+
+
+function saludo(nombre = "Desconocid@") {
+    alert(`Hola ${nombre}`)
+}
+
+const $eventoSemantico = document.getElementById("evento-semantico"),
+$eventoMultiple = document.getElementById("evento-multiple"),
+$eventoRemover = document.getElementById("evento-remover");
+
+$eventoSemantico.onclick = holaMundo;
+$eventoSemantico.onclick = function(e) {
+    alert("Hola mundo manejador de eventos semántico")
+    console.log(e);
+    console.log(event);
+};
+
+$eventoMultiple.addEventListener("click",holaMundo);
+$eventoMultiple.addEventListener("click",(e) => {
+    alert("Hola mundo manejador de eventos multiples");
+    console.log(e);
+    console.log(e.type);
+    console.log(e.target);
+    console.log(event);
+});
+
+$eventoMultiple,addEventListener("click",() => {
+    saludo();
+    saludo("Jhamil");
+});
+
+const removeDobleClick = (e) => {
+    alert(`Removiendo el evento de tipo ${e.type}`)
+    console.log(e);
+    $eventoRemover.removeEventListener("dblclick",removeDobleClick);
+    $eventoRemover.disabled = true;
+}
+
+$eventoRemover.addEventListener("click",removeDobleClick);
+
+
+//Flujo de eventos(burbuja y captura)
+//stopPropagation & preventDefaul
+
+
+const $divsEventos = document.querySelectorAll(".eventos-flujo div"),
+    $linkEventos = document.querySelector(".eventos-flujo a");
+
+function flujoEventos(e) {
+    console.log(`Hola te saluda ${this.className}, el click lo origino ${e.target.className}`);
+    e.stopPropagation();
+}
+
+$divsEventos.forEach(div => {
+    //Fase de burbuja
+    div.addEventListener("click",flujoEventos);
+})
+
+$linkEventos.addEventListener("click",(e) => {
+    alert("Hola soy el que nadie menciona");
+    e.preventDefault();
+    e.stopPropagation();
+});
+
+*/
