@@ -1,0 +1,13 @@
+{
+
+    "cadena":"Jhamil",
+    "numero": "35",
+    "booleano": "true",
+    "arreglo": ["correr","programar","cocinar"],
+    "objeto": {
+        "twitter": "@jhamil",
+        "email": "jhamil.arroyo.a@gmail.com"
+    }, 
+    "nulo":null
+
+}
